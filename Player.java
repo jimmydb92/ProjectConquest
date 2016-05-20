@@ -96,4 +96,23 @@ public class Player {
 			+ "\n\nUNITS" + unitToString();
 	}
 	
+	//what is called when the player moves amongst own territories. Can this also be used to move after a battle? 
+	//just call move with winner and surviving armies
+	public void moveUnits(Territory toTerr, ArrayList<Unit> inUnitList){
+		if (toTerr.getTerrUnits().size()!= 0){
+			for (int i = 0; i < inUnitList.size(); i++){
+				inUnitList.get(i).setLocation(toTerr);
+				toTerr.getTerrUnits().add(1,inUnitList.get(i)); //if there are units there add to them
+			}
+		}
+		
+		else{
+			for (int i = 0; i < inUnitList.size(); i++){
+				inUnitList.get(i).setLocation(toTerr);
+				toTerr.setTerrUnits(inUnitList);
+			}
+		}
+		
+	}
+	
 }

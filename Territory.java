@@ -33,7 +33,8 @@ public class Territory {
 		territoryUnits = new ArrayList<Unit>();
 	}
 	
-	public Territory(String inName, Player inPlayer, int inID, boolean inDir, boolean inIndir, boolean inSlow, boolean inWater){
+	public Territory(String inName, Player inPlayer, int inID, boolean inDir, boolean inIndir, boolean inSlow
+			, boolean inWater, ArrayList<Unit> inUnitList){
 		name = inName;
 		owner = inPlayer;
 		terriID = inID;
@@ -41,6 +42,7 @@ public class Territory {
 		isIndirImpass = inIndir;
 		isSlow = inSlow;
 		isWater = inWater;
+		territoryUnits = inUnitList;
 	}
 	
 	public String getName(){
@@ -99,6 +101,14 @@ public class Territory {
 		owner = inOwner;
 	}
 	
+	public ArrayList<Unit> getTerrUnits(){
+		return territoryUnits;
+	}
+	
+	public void setTerrUnits(ArrayList<Unit> inTerrUnits){
+		territoryUnits = inTerrUnits;
+	}
+	
 	public String toString(){
 		String dirStr, indirStr, slowStr, waterStr;
 		
@@ -107,7 +117,7 @@ public class Territory {
 		slowStr = String.valueOf(isSlow);
 		waterStr = String.valueOf(isWater);
 		
-		return "\n	Territory Name: " + name + " Territory ID: " + terriID + " DirImpass: " + dirStr 
+		return "\n	Territory Name: " + name + " Territory ID: " + terriID + " Territory Owner: " + owner.getName() + " DirImpass: " + dirStr 
 				+ " IndirImpass: " + indirStr + " SlowImpass: " + slowStr + " WaterLand: " 
 				+ waterStr;		
 	}

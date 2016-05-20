@@ -12,12 +12,13 @@ public class GiveItAWhirl {
 		ArrayList<Unit> testUnitList = new ArrayList<Unit>();
 		ArrayList<Territory> testTerritoryList = new ArrayList<Territory>();
 		
+		Player testPlayer = new Player();
 		
-		testTerritoryList.add(new Territory("ericB", 1, false, false, false, false));
-		testTerritoryList.add(new Territory("rakim", 2, false, false, false, false));
+		testTerritoryList.add(new Territory("ericB", testPlayer, 1, false, false, false, false));
+		testTerritoryList.add(new Territory("rakim", testPlayer, 2, false, false, false, false));
 		testUnitList.add(new Unit("lilHomie", 1, testTerritoryList.get(0)));
 		
-		Player testPlayer = new Player();
+		
 		
 		testPlayer.setUnits(testUnitList);
 		testPlayer.setLand(testTerritoryList);
